@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: Activek123?
+  host: localhost
+  port: 5432
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: realtime_search_box_development
+
+test:
+  <<: *default
+  database: realtime_search_box_test
+
+production:
+  <<: *default
+  database: realtime_search_box_production
+  username: realtime_search_box
+  password: <%= ENV["REALTIME_SEARCH_BOX_DATABASE_PASSWORD"] %>
