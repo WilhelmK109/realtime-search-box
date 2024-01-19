@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Analytics App</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+  <h1>Search Analytics</h1>
+  <input type="text" id="searchInput" placehplder="Type your search..." oninput="search" />
+
+  <div id="searchResults"></div>
+  
+  <script>
+    function search() {
+      const searchInput = document.getElementById('searchInput').value;
+      if (searchInput.trim() !== '') {
+        $.ajax({
+          type: 'POST',
+          url: '/search/create',
+          data: { search_text: searchInput },
+          success: function(data) {
+            if (data.status === 'success') {
+              displaySearchResult(data.search);
+            } else {
+              console.error(data.message);
+            }
+          },
+          error: function(error) {
+            console.error(error);
+          }
+        });
+      }
+    }
+
+    function displaySearchResult(searchText) {
+      const searchResultsDiv = document.getElementById('searchResults');
+      const searchItem = document.createElement('div');
+      searchItem.textContent = searchText;
+      searchResultsDiv.appendChild(searchItem);
+    }
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @searches = Search.available
+    @searches = Search.all
   end
 
   def create
