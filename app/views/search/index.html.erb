@@ -3,21 +3,34 @@
 <head>
   <title>Search Analytics App</title>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <meta name="csrf-token" content="<%= form_authenticity_token %>" />
 </head>
 <body>
   <h1>Search Analytics</h1>
-  <input type="text" id="searchInput" placehplder="Type your search..." oninput="search" />
+  <input type="text" id="searchInput" placeholder="Type your search..." oninput="delayedSearch()" />
 
   <div id="searchResults"></div>
   
   <script>
+    var searchTimer;
+
+    function delayedSearch() {
+      clearTimeout(searchTimer); // Clear the previous timer if it exists
+      searchTimer = setTimeout(search, 3000);
+    }
+
     function search() {
-      const searchInput = document.getElementById('searchInput').value;
+
+      const searchInput = document.getElementById('searchInput').value.trim();
+
       if (searchInput.trim() !== '') {
         $.ajax({
           type: 'POST',
           url: '/search/create',
           data: { search_text: searchInput },
+          headers: {
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+          },
           success: function(data) {
             if (data.status === 'success') {
               displaySearchResult(data.search);
