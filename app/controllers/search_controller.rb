@@ -10,7 +10,7 @@ class SearchController < ApplicationController
     if search.save
       render json: { status: 'success', search: search_text }
     else
-      render json: { status: 'error', message: 'Failed to save search' }
+      render json: { status: 'error', message: 'Failed to save search' }, status: :unprocessable_entity
     end
   end
 
