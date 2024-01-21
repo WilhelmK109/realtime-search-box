@@ -7,9 +7,17 @@
 </head>
 <body>
   <h1>Search Analytics</h1>
-  <input type="text" id="searchInput" placeholder="Type your search..." oninput="delayedSearch()" />
 
-  <div id="searchResults"></div>
+  <div>
+    <h2>Search Box</h2>
+    <input type="text" id="searchInput" placeholder="Type your search..." oninput="delayedSearch()" />
+    <div id="searchResults"></div>
+  </div>
+
+  <div>
+    <h2>Search Analytics</h2>
+    <%= render 'analytics' %>
+  </div>
   
   <script>
     var searchTimer;

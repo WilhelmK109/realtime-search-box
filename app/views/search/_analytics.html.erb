@@ -1,0 +1,11 @@
+<h1>Search Analytics - Analytics</h1>
+
+<h2>Top Searches:</h2>
+<ul>
+  <% @top_searches.each do |search, count| %>
+    <li><%= "#{search}: #{count} times" %></li>
+  <% end %>
+</ul>
+
+<h2>Unique Users Count:</h2>
+<p><%= @unique_users_count %></p>

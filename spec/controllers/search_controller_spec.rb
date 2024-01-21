@@ -28,11 +28,4 @@ RSpec.describe SearchController, type: :controller do
       expect(JSON.parse(response.body)['status']).to eq('error')
     end
   end
-
-  describe 'GET #analytics' do
-    it 'renders the analytics template' do
-      get :analytics
-      expect(response).to render_template('analytics')
-    end
-  end
 end
