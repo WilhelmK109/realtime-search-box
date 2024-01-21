@@ -57,17 +57,13 @@ This is a rails + vanila js realtime search box project, that records the user's
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](<replace-with-your-deployment-URL>)
+- [Live Demo Link](https://wilhelm-realtime-searchbox.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
--->
-<!-- GETTING STARTED -->
+
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
